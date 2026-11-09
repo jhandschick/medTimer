@@ -409,4 +409,5 @@
     <string name="scan_unknown_pzn">PZN %1$s nie jest jeszcze przypisany. Przypisz do:</string>
     <string name="scan_refilled">Uzupełniono</string>
     <string name="scan_assigned">Przypisano PZN</string>
+    <string name="scan_no_camera">Brak dostępnego aparatu do skanowania.</string>
 </resources>

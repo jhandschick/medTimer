@@ -403,4 +403,5 @@
     <string name="scan_unknown_pzn">Le PZN %1$s n\'est pas encore attribué. Attribuer à :</string>
     <string name="scan_refilled">Rechargé</string>
     <string name="scan_assigned">PZN attribué</string>
+    <string name="scan_no_camera">Aucune caméra n\'est disponible pour scanner.</string>
 </resources>

@@ -409,4 +409,5 @@
     <string name="scan_unknown_pzn">PZN %1$s ще не призначено. Призначити для:</string>
     <string name="scan_refilled">Поповнено</string>
     <string name="scan_assigned">PZN призначено</string>
+    <string name="scan_no_camera">Немає доступної камери для сканування.</string>
 </resources>

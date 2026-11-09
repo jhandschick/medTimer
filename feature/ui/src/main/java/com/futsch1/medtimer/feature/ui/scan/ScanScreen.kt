@@ -7,6 +7,7 @@ import android.util.Log
 import android.util.Size
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.camera.core.CameraInfoUnavailableException
 import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
@@ -51,6 +52,7 @@ import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.futsch1.medtimer.core.common.LogTags
 import java.time.LocalDate
+import java.util.concurrent.ExecutionException
 import java.util.concurrent.Executors
 import com.futsch1.medtimer.core.ui.R as CoreUiR
 
@@ -71,11 +73,15 @@ fun ScanScreen(
     // The permission may have been granted in the system settings meanwhile
     LifecycleEventEffect(Lifecycle.Event.ON_RESUME) { granted = hasCameraPermission(context) }
 
+    val cameraAvailable by viewModel.cameraAvailable.collectAsStateWithLifecycle()
     Box(modifier.fillMaxSize()) {
-        if (granted) {
+        if (!cameraAvailable) {
+            Text(stringResource(CoreUiR.string.scan_no_camera), modifier = Modifier.align(Alignment.Center).padding(24.dp))
+        } else if (granted) {
             CameraPreview(
                 shouldDecode = { viewModel.state.value == ScanUiState.Scanning },
                 onRaw = viewModel::onRaw,
+                onUnavailable = viewModel::onCameraUnavailable,
                 modifier = Modifier.fillMaxSize()
             )
             Text(
@@ -91,7 +97,7 @@ fun ScanScreen(
 
     val state by viewModel.state.collectAsStateWithLifecycle()
     when (val current = state) {
-        ScanUiState.Scanning -> Unit
+        ScanUiState.Scanning, ScanUiState.Processing -> Unit
         is ScanUiState.Found -> RefillDialog(current.outcome, formatDate, viewModel::confirmRefill, viewModel::dismiss)
         is ScanUiState.Unassigned -> AssignDialog(current, viewModel::assignTo, viewModel::dismiss)
         is ScanUiState.Done -> LaunchedEffect(current) { onDone(current.messageRes) }
@@ -110,7 +116,7 @@ private fun PermissionHint(onOpenSettings: () -> Unit, modifier: Modifier) {
 }
 
 @Composable
-private fun CameraPreview(shouldDecode: () -> Boolean, onRaw: (String) -> Unit, modifier: Modifier) {
+private fun CameraPreview(shouldDecode: () -> Boolean, onRaw: (String) -> Unit, onUnavailable: () -> Unit, modifier: Modifier) {
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
     val executor = remember { Executors.newSingleThreadExecutor() }
@@ -131,14 +137,30 @@ private fun CameraPreview(shouldDecode: () -> Boolean, onRaw: (String) -> Unit, 
     DisposableEffect(lifecycleOwner) {
         providerFuture.addListener({
             try {
-                providerFuture.get().bindToLifecycle(lifecycleOwner, CameraSelector.DEFAULT_BACK_CAMERA, preview, analysis)
-            } catch (e: IllegalArgumentException) {
-                // No back camera on this device
+                val provider = providerFuture.get()
+                val selector = listOf(CameraSelector.DEFAULT_BACK_CAMERA, CameraSelector.DEFAULT_FRONT_CAMERA)
+                    .firstOrNull(provider::hasCamera)
+                if (selector == null) {
+                    onUnavailable()
+                } else {
+                    provider.bindToLifecycle(lifecycleOwner, selector, preview, analysis)
+                }
+            } catch (e: ExecutionException) {
+                // CameraX could not be initialized, e.g. the camera service is unavailable
                 Log.w(LogTags.MAIN, "Cannot open camera for scanning", e)
+                onUnavailable()
+            } catch (e: CameraInfoUnavailableException) {
+                Log.w(LogTags.MAIN, "Cannot query cameras for scanning", e)
+                onUnavailable()
+            } catch (e: IllegalArgumentException) {
+                // The use cases cannot be bound, e.g. because the screen was left meanwhile
+                Log.w(LogTags.MAIN, "Cannot bind camera for scanning", e)
             }
         }, ContextCompat.getMainExecutor(context))
         onDispose {
-            if (providerFuture.isDone) providerFuture.get().unbind(preview, analysis)
+            if (providerFuture.isDone) {
+                runCatching { providerFuture.get() }.getOrNull()?.unbind(preview, analysis)
+            }
             analysis.clearAnalyzer()
             executor.shutdown()
         }

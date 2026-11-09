@@ -104,4 +104,5 @@
     <string name="scan_unknown_pzn">PZN %1$s er ikke tilordnet ennå. Tilordne til:</string>
     <string name="scan_refilled">Fylt på</string>
     <string name="scan_assigned">PZN tilordnet</string>
+    <string name="scan_no_camera">Ingen kamera er tilgjengelig for skanning.</string>
 </resources>

@@ -397,4 +397,5 @@
     <string name="scan_unknown_pzn">PZN %1$s is nog niet toegewezen. Toewijzen aan:</string>
     <string name="scan_refilled">Aangevuld</string>
     <string name="scan_assigned">PZN toegewezen</string>
+    <string name="scan_no_camera">Er is geen camera beschikbaar om te scannen.</string>
 </resources>

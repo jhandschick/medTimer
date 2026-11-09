@@ -252,4 +252,5 @@
     <string name="scan_unknown_pzn">PZN %1$s hefur ekki verið tengt enn. Tengja við:</string>
     <string name="scan_refilled">Fyllt á</string>
     <string name="scan_assigned">PZN tengt</string>
+    <string name="scan_no_camera">Engin myndavél er tiltæk til að skanna.</string>
 </resources>

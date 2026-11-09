@@ -390,4 +390,5 @@
     <string name="scan_unknown_pzn">PZN %1$s 尚未關聯。關聯到：</string>
     <string name="scan_refilled">已補充</string>
     <string name="scan_assigned">已關聯 PZN</string>
+    <string name="scan_no_camera">沒有可用於掃描的相機。</string>
 </resources>

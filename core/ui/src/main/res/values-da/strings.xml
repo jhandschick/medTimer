@@ -397,4 +397,5 @@
     <string name="scan_unknown_pzn">PZN %1$s er endnu ikke tildelt. Tildel til:</string>
     <string name="scan_refilled">Genopfyldt</string>
     <string name="scan_assigned">PZN tildelt</string>
+    <string name="scan_no_camera">Der er intet kamera til rådighed til scanning.</string>
 </resources>

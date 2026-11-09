@@ -397,4 +397,5 @@
     <string name="scan_unknown_pzn">PZN %1$s pole veel määratud. Määra ravimile:</string>
     <string name="scan_refilled">Täiendatud</string>
     <string name="scan_assigned">PZN määratud</string>
+    <string name="scan_no_camera">Skannimiseks pole kaamerat saadaval.</string>
 </resources>

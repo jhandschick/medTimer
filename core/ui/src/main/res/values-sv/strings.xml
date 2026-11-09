@@ -397,4 +397,5 @@
     <string name="scan_unknown_pzn">PZN %1$s är inte tilldelat än. Tilldela till:</string>
     <string name="scan_refilled">Påfyllt</string>
     <string name="scan_assigned">PZN tilldelat</string>
+    <string name="scan_no_camera">Ingen kamera är tillgänglig för skanning.</string>
 </resources>
