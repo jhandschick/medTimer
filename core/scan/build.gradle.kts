@@ -28,6 +28,7 @@ androidComponents {
 }
 
 dependencies {
+    implementation(libs.zxing.core)
     coreLibraryDesugaring(libs.desugar.jdk.libs)
 
     testImplementation(libs.junit4)

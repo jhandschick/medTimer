@@ -20,6 +20,7 @@ lifecycle-ktx = "2.11.0"
 room = "2.8.5"
 biometric = "1.1.0"
 espresso = "3.7.0"
+camerax = "1.6.2"
 
 # UI / Third-party
 material = "1.14.0"
@@ -32,6 +33,7 @@ icondialog = "3.3.0"
 flexbox = "3.0.0"
 reorderable = "3.1.0"
 play-services-location = "21.4.0"
+zxing = "3.5.4"
 
 # Testing
 junit4 = "4.13.2"
@@ -121,6 +123,13 @@ androidx-test-orchestrator = { module = "androidx.test:orchestrator", version.re
 screengrab = { module = "tools.fastlane:screengrab", version.ref = "screengrab" }
 uiautomator = { module = "androidx.test.uiautomator:uiautomator", version.ref = "uiautomator" }
 barista = { module = "com.adevinta.android:barista", version.ref = "barista" }
+
+# Camera / barcode scanning
+androidx-camera-core = { module = "androidx.camera:camera-core", version.ref = "camerax" }
+androidx-camera-camera2 = { module = "androidx.camera:camera-camera2", version.ref = "camerax" }
+androidx-camera-lifecycle = { module = "androidx.camera:camera-lifecycle", version.ref = "camerax" }
+androidx-camera-view = { module = "androidx.camera:camera-view", version.ref = "camerax" }
+zxing-core = { module = "com.google.zxing:core", version.ref = "zxing" }
 
 # Build
 commonmark = { module = "org.commonmark:commonmark", version.ref = "commonmark" }
