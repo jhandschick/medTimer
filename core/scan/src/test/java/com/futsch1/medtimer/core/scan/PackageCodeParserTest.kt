@@ -28,6 +28,19 @@ class PackageCodeParserTest {
     }
 
     @Test
+    fun `should parse gs1 when gtin is not the first field and fnc1 prefix missing or a leading GS`() {
+        val inputs = listOf(
+            "${GS}17261231" + "10ABC123$GS" + "0104150123456782",
+            "17261231" + "0104150123456782" + "10ABC123",
+            "21SN0001$GS" + "0104150123456782" + "17261231"
+        )
+
+        val pzns = inputs.map { PackageCodeParser.parse(it)?.pzn }
+
+        assertEquals(listOf("12345678", "12345678", "12345678"), pzns)
+    }
+
+    @Test
     fun `should return null for unrelated barcodes`() {
         val results = listOf("4006381333931", "https://example.org", "Medicine A").map { PackageCodeParser.parse(it) }
 
@@ -41,7 +54,7 @@ class PackageCodeParserTest {
             .filterNotNull().take(500).toList()
 
         val mismatches = pzns.flatMap { pzn ->
-            listOf("-$pzn", "9N${ppnFor(pzn)}${GS}D261231", "]d201${gtinFor(pzn)}17261231").filter { PackageCodeParser.parse(it)?.pzn != pzn }
+            listOf("-$pzn", "9N${ppnFor(pzn)}${GS}D261231", "]d201${gtinFor(pzn)}17261231", "10LOT$GS" + "01${gtinFor(pzn)}").filter { PackageCodeParser.parse(it)?.pzn != pzn }
         }
 
         assertEquals(emptyList(), mismatches)
