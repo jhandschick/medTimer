@@ -7,7 +7,7 @@ import kotlin.test.assertTrue
 
 class ExpiryDateTest {
     @Test
-    fun `should parse full date`() {
+    fun `should parse date when all six digits are valid`() {
         assertEquals(LocalDate.of(2026, 12, 31), parseExpiry("261231"))
     }
 

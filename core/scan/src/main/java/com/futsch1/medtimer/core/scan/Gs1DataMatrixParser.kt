@@ -25,7 +25,7 @@ internal object Gs1DataMatrixParser {
     }
 
     private fun readElements(data: String): Map<String, String>? {
-        val fields = mutableMapOf<String, String>()
+        val fields = mutableListOf<Pair<String, String>>()
         var position = 0
         while (position < data.length) {
             if (data[position] == GS) {
@@ -33,7 +33,7 @@ internal object Gs1DataMatrixParser {
                 continue
             }
             val prefix = data.substring(position, minOf(position + 2, data.length))
-            if (prefix.length < 2 || !prefix.all { it.isDigit() }) return null
+            if (prefix.length < 2 || !prefix.all { it in '0'..'9' }) return null
             val aiLength = if (prefix in fourDigitAis) 4 else if (prefix in threeDigitAis) 3 else 2
             val valueStart = position + aiLength
             if (valueStart > data.length) return null
@@ -41,10 +41,10 @@ internal object Gs1DataMatrixParser {
             val fixedLength = predefinedDataLength[prefix]
             val valueEnd = if (fixedLength != null) valueStart + fixedLength else data.indexOf(GS, valueStart).takeIf { it >= 0 } ?: data.length
             if (valueEnd > data.length) return null
-            fields.putIfAbsent(ai, data.substring(valueStart, valueEnd))
+            fields += ai to data.substring(valueStart, valueEnd)
             position = valueEnd
         }
-        return fields
+        return fields.toConsistentMap()
     }
 
     private fun pznFrom(fields: Map<String, String>): String? {

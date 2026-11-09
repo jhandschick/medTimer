@@ -16,7 +16,7 @@ class Code39PznParserTest {
     }
 
     @Test
-    fun `should ignore surrounding whitespace`() {
+    fun `should read pzn when surrounded by whitespace`() {
         assertEquals(PackageCode("12345678", null, null, null), Code39PznParser.parse("  -12345678\n"))
     }
 

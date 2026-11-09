@@ -10,33 +10,33 @@ class Gs1DataMatrixParserTest {
     private val completeBody = "0104150123456782" + "17261231" + "10ABC123$GS" + "21SN0001"
 
     @Test
-    fun `should read all fields`() {
+    fun `should read all fields when every ai is present`() {
         assertEquals(complete, Gs1DataMatrixParser.parse(gs1(completeBody)))
     }
 
     @Test
-    fun `should parse identically with leading GS or without prefix`() {
+    fun `should parse identically when prefix is GS or missing`() {
         val results = listOf(GS, "").map { Gs1DataMatrixParser.parse(gs1(completeBody, prefix = it)) }
 
         assertEquals(listOf(complete, complete), results)
     }
 
     @Test
-    fun `should read variable fields in any order`() {
+    fun `should read variable fields when order differs`() {
         val raw = gs1("0104150123456782" + "21SN0001$GS" + "17261231" + "10ABC123")
 
         assertEquals(complete, Gs1DataMatrixParser.parse(raw))
     }
 
     @Test
-    fun `should skip unknown fixed and variable ais`() {
+    fun `should skip ais when they are unknown`() {
         val raw = gs1("0104150123456782" + "11250101" + "17261231" + "240XYZ$GS" + "10ABC123$GS" + "21SN0001")
 
         assertEquals(complete, Gs1DataMatrixParser.parse(raw))
     }
 
     @Test
-    fun `should use last day of month for day 00`() {
+    fun `should use last day of month when day is 00`() {
         val code = Gs1DataMatrixParser.parse(gs1("0104150123456782" + "17260200"))
 
         assertEquals(LocalDate.of(2026, 2, 28), code?.expiry)
@@ -67,6 +67,23 @@ class Gs1DataMatrixParserTest {
     @Test
     fun `should return null when expiry invalid`() {
         assertNull(Gs1DataMatrixParser.parse(gs1("0104150123456782" + "17261300")))
+    }
+
+    @Test
+    fun `should return null when an ai repeats with a different value`() {
+        assertNull(Gs1DataMatrixParser.parse(gs1("0104150123456782" + "17261231" + "17271231")))
+    }
+
+    @Test
+    fun `should accept repeated ais when values are identical`() {
+        val code = Gs1DataMatrixParser.parse(gs1("0104150123456782" + "17261231" + "17261231"))
+
+        assertEquals(LocalDate.of(2026, 12, 31), code?.expiry)
+    }
+
+    @Test
+    fun `should return null when an ai uses non ascii digits`() {
+        assertNull(Gs1DataMatrixParser.parse(gs1("0104150123456782" + "17261231" + "١٢ABC")))
     }
 
     private fun gs1(body: String, prefix: String = "]d2") = prefix + body

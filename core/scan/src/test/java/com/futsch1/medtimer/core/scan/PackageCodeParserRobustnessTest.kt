@@ -24,7 +24,7 @@ class PackageCodeParserRobustnessTest(private val name: String, private val raw:
     }
 
     @Test
-    fun `should never throw for malformed input`() {
+    fun `should not throw when input is malformed`() {
         PackageCodeParser.parse(raw)
     }
 }

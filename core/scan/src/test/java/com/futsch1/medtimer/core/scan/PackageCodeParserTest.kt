@@ -8,7 +8,7 @@ import kotlin.test.assertTrue
 
 class PackageCodeParserTest {
     @Test
-    fun `should dispatch each format`() {
+    fun `should parse each format when given its typical content`() {
         val inputs = listOf(
             "PZN-12345678",
             "[)>${RS}06${GS}9N111234567842${GS}1TABC123${GS}D261231${GS}S1234567890$RS$EOT",
@@ -41,14 +41,14 @@ class PackageCodeParserTest {
     }
 
     @Test
-    fun `should return null for unrelated barcodes`() {
+    fun `should return null when barcode is unrelated`() {
         val results = listOf("4006381333931", "https://example.org", "Medicine A").map { PackageCodeParser.parse(it) }
 
         assertTrue(results.all { it == null }, "results: $results")
     }
 
     @Test
-    fun `should round trip random valid pzns through every format`() {
+    fun `should recover pzn when it is encoded in every format`() {
         val random = Random(42)
         val pzns = generateSequence { pznFor((0 until 7).map { random.nextInt(10) }.joinToString("")) }
             .filterNotNull().take(500).toList()

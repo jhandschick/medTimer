@@ -23,7 +23,7 @@ class IfaDataMatrixParserTest {
     }
 
     @Test
-    fun `should read fields in any order and skip unknown identifiers`() {
+    fun `should read fields when order differs and unknown identifiers are present`() {
         val raw = ifa("S1234567890", "8P04150123456782", "D261231", "9N111234567842", "1TABC123")
 
         assertEquals(complete, IfaDataMatrixParser.parse(raw))
@@ -35,7 +35,7 @@ class IfaDataMatrixParserTest {
     }
 
     @Test
-    fun `should use last day of month for day 00`() {
+    fun `should use last day of month when day is 00`() {
         val code = IfaDataMatrixParser.parse(ifa("9N111234567842", "D260200"))
 
         assertEquals(LocalDate.of(2026, 2, 28), code?.expiry)
@@ -64,6 +64,25 @@ class IfaDataMatrixParserTest {
     @Test
     fun `should return null when expiry invalid`() {
         assertNull(IfaDataMatrixParser.parse(ifa("9N111234567842", "D261300")))
+    }
+
+    @Test
+    fun `should return null when an identifier repeats with a different value`() {
+        assertNull(IfaDataMatrixParser.parse(ifa("9N111234567842", "D261231", "D271231")))
+    }
+
+    @Test
+    fun `should accept repeated identifiers when values are identical`() {
+        val code = IfaDataMatrixParser.parse(ifa("9N111234567842", "D261231", "D261231"))
+
+        assertEquals(LocalDate.of(2026, 12, 31), code?.expiry)
+    }
+
+    @Test
+    fun `should read fields when macro trailer lacks record separator`() {
+        val raw = "[)>${RS}06${GS}9N111234567842${GS}D261231$EOT"
+
+        assertEquals(PackageCode("12345678", null, LocalDate.of(2026, 12, 31), null), IfaDataMatrixParser.parse(raw))
     }
 
     private fun ifa(vararg fields: String, macro: Boolean = true): String {
