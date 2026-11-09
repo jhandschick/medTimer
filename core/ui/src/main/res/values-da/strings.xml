@@ -385,4 +385,16 @@
     <string name="manual_dose_logged">Dosis registreret</string>
     <string name="manual_dose_log_failed">Dosis kunne ikke registreres</string>
     <string name="medicine_name_required">Indtast et lægemiddelnavn</string>
+    <string name="pzn_not_set">Ikke angivet</string>
+    <string name="pzn_invalid">Ugyldigt PZN (kontrolciffer)</string>
+    <string name="scan_package">Scan pakning</string>
+    <string name="scan_hint">Hold stregkoden eller Data Matrix-koden foran kameraet</string>
+    <string name="scan_camera_permission">Der kræves adgang til kameraet for at scanne pakninger.</string>
+    <string name="open_settings">Åbn indstillinger</string>
+    <string name="scan_refill_question">Genopfyld %1$s?</string>
+    <string name="scan_take_expiry">Sæt udløbsdato til %1$s</string>
+    <string name="scan_batch">Batch: %1$s</string>
+    <string name="scan_unknown_pzn">PZN %1$s er endnu ikke tildelt. Tildel til:</string>
+    <string name="scan_refilled">Genopfyldt</string>
+    <string name="scan_assigned">PZN tildelt</string>
 </resources>

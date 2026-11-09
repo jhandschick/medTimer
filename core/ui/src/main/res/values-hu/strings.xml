@@ -385,4 +385,16 @@
     <string name="manual_dose_logged">Adag naplózva</string>
     <string name="manual_dose_log_failed">Nem sikerült naplózni az adagot</string>
     <string name="medicine_name_required">Adja meg a gyógyszer nevét</string>
+    <string name="pzn_not_set">Nincs megadva</string>
+    <string name="pzn_invalid">Érvénytelen PZN (ellenőrző számjegy)</string>
+    <string name="scan_package">Csomagolás beolvasása</string>
+    <string name="scan_hint">Tartsa a vonalkódot vagy a Data Matrix kódot a kamera elé</string>
+    <string name="scan_camera_permission">A csomagolások beolvasásához hozzáférés szükséges a kamerához.</string>
+    <string name="open_settings">Beállítások megnyitása</string>
+    <string name="scan_refill_question">Feltölti: %1$s?</string>
+    <string name="scan_take_expiry">Lejárati dátum beállítása: %1$s</string>
+    <string name="scan_batch">Gyártási tétel: %1$s</string>
+    <string name="scan_unknown_pzn">A(z) %1$s PZN még nincs hozzárendelve. Hozzárendelés ehhez:</string>
+    <string name="scan_refilled">Feltöltve</string>
+    <string name="scan_assigned">PZN hozzárendelve</string>
 </resources>

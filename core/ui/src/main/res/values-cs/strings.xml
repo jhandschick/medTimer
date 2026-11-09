@@ -397,4 +397,16 @@
     <string name="manual_dose_logged">Dávka zaznamenána</string>
     <string name="manual_dose_log_failed">Dávku se nepodařilo zaznamenat</string>
     <string name="medicine_name_required">Zadejte název léku</string>
+    <string name="pzn_not_set">Nenastaveno</string>
+    <string name="pzn_invalid">Neplatné PZN (kontrolní číslice)</string>
+    <string name="scan_package">Naskenovat balení</string>
+    <string name="scan_hint">Podržte čárový kód nebo kód Data Matrix před fotoaparátem</string>
+    <string name="scan_camera_permission">Ke skenování balení je potřeba přístup k fotoaparátu.</string>
+    <string name="open_settings">Otevřít nastavení</string>
+    <string name="scan_refill_question">Doplnit %1$s?</string>
+    <string name="scan_take_expiry">Nastavit datum expirace na %1$s</string>
+    <string name="scan_batch">Šarže: %1$s</string>
+    <string name="scan_unknown_pzn">PZN %1$s zatím není přiřazeno. Přiřadit k:</string>
+    <string name="scan_refilled">Doplněno</string>
+    <string name="scan_assigned">PZN přiřazeno</string>
 </resources>

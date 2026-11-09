@@ -240,4 +240,16 @@
     <string name="pk_unit_conflict">%1$s er ekki sýnt vegna þess að skammtar þess nota mismunandi einingar: %2$s. Breyttu magninu þannig að allir noti sömu einingu.</string>
     <string name="pk_no_unit">engin eining</string>
     <string name="custom_range">Sérsnið</string>
+    <string name="pzn_not_set">Ekki skráð</string>
+    <string name="pzn_invalid">Ógilt PZN (vartala)</string>
+    <string name="scan_package">Skanna pakkningu</string>
+    <string name="scan_hint">Haltu strikamerkinu eða Data Matrix kóðanum fyrir framan myndavélina</string>
+    <string name="scan_camera_permission">Aðgangur að myndavél er nauðsynlegur til að skanna pakkningar.</string>
+    <string name="open_settings">Opna stillingar</string>
+    <string name="scan_refill_question">Fylla á %1$s?</string>
+    <string name="scan_take_expiry">Setja fyrningardagsetningu á %1$s</string>
+    <string name="scan_batch">Lota: %1$s</string>
+    <string name="scan_unknown_pzn">PZN %1$s hefur ekki verið tengt enn. Tengja við:</string>
+    <string name="scan_refilled">Fyllt á</string>
+    <string name="scan_assigned">PZN tengt</string>
 </resources>

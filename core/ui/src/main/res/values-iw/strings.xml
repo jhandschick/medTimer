@@ -391,4 +391,16 @@
     <string name="manual_dose_logged">המנה נרשמה</string>
     <string name="manual_dose_log_failed">לא ניתן לרשום את המנה</string>
     <string name="medicine_name_required">יש להזין שם תרופה</string>
+    <string name="pzn_not_set">לא הוגדר</string>
+    <string name="pzn_invalid">PZN לא תקין (ספרת ביקורת)</string>
+    <string name="scan_package">סריקת אריזה</string>
+    <string name="scan_hint">החזיקו את הברקוד או קוד ה-Data Matrix מול המצלמה</string>
+    <string name="scan_camera_permission">נדרשת גישה למצלמה כדי לסרוק אריזות.</string>
+    <string name="open_settings">פתיחת ההגדרות</string>
+    <string name="scan_refill_question">למלא את %1$s?</string>
+    <string name="scan_take_expiry">הגדרת תאריך תפוגה ל-%1$s</string>
+    <string name="scan_batch">אצווה: %1$s</string>
+    <string name="scan_unknown_pzn">PZN %1$s עדיין לא שויך. שיוך אל:</string>
+    <string name="scan_refilled">מולא</string>
+    <string name="scan_assigned">PZN שויך</string>
 </resources>

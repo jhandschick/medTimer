@@ -385,4 +385,16 @@
     <string name="manual_dose_logged">Dosen loggades</string>
     <string name="manual_dose_log_failed">Det gick inte att logga dosen</string>
     <string name="medicine_name_required">Ange ett läkemedelsnamn</string>
+    <string name="pzn_not_set">Inte angivet</string>
+    <string name="pzn_invalid">Ogiltigt PZN (kontrollsiffra)</string>
+    <string name="scan_package">Skanna förpackning</string>
+    <string name="scan_hint">Håll streckkoden eller Data Matrix-koden framför kameran</string>
+    <string name="scan_camera_permission">Åtkomst till kameran krävs för att skanna förpackningar.</string>
+    <string name="open_settings">Öppna inställningar</string>
+    <string name="scan_refill_question">Fyll på %1$s?</string>
+    <string name="scan_take_expiry">Ställ in utgångsdatum till %1$s</string>
+    <string name="scan_batch">Batch: %1$s</string>
+    <string name="scan_unknown_pzn">PZN %1$s är inte tilldelat än. Tilldela till:</string>
+    <string name="scan_refilled">Påfyllt</string>
+    <string name="scan_assigned">PZN tilldelat</string>
 </resources>

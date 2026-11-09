@@ -391,4 +391,16 @@
     <string name="manual_dose_logged">Dosis registrada</string>
     <string name="manual_dose_log_failed">No se pudo registrar la dosis</string>
     <string name="medicine_name_required">Introduce el nombre de un medicamento</string>
+    <string name="pzn_not_set">Sin definir</string>
+    <string name="pzn_invalid">PZN no válido (dígito de control)</string>
+    <string name="scan_package">Escanear envase</string>
+    <string name="scan_hint">Sostén el código de barras o el código Data Matrix frente a la cámara</string>
+    <string name="scan_camera_permission">Se necesita acceso a la cámara para escanear envases.</string>
+    <string name="open_settings">Abrir ajustes</string>
+    <string name="scan_refill_question">¿Reponer %1$s?</string>
+    <string name="scan_take_expiry">Establecer fecha de caducidad en %1$s</string>
+    <string name="scan_batch">Lote: %1$s</string>
+    <string name="scan_unknown_pzn">El PZN %1$s aún no está asignado. Asignar a:</string>
+    <string name="scan_refilled">Repuesto</string>
+    <string name="scan_assigned">PZN asignado</string>
 </resources>

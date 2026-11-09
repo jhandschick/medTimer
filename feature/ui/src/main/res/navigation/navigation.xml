@@ -26,7 +26,14 @@
             <action
                 android:id="@+id/action_medicinesFragment_to_editMedicineFragment"
                 app:destination="@id/editMedicineFragment" />
+            <action
+                android:id="@+id/action_medicinesFragment_to_scanFragment"
+                app:destination="@id/scanFragment" />
         </fragment>
+        <fragment
+            android:id="@+id/scanFragment"
+            android:name="com.futsch1.medtimer.feature.ui.scan.ScanFragment"
+            android:label="@string/scan_package" />
         <fragment
             android:id="@+id/editMedicineFragment"
             android:name="com.futsch1.medtimer.feature.ui.medicine.EditMedicineFragment">

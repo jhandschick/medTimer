@@ -98,7 +98,7 @@ class MedicinesFragment : Fragment() {
                     MedTimerTopAppBar(
                         title = stringResource(com.futsch1.medtimer.core.ui.R.string.tab_medicine),
                         actions = {
-                            MedicinesMenuActions(medicinesMenu)
+                            MedicinesMenuActions(medicinesMenu, onScanPackage = ::navigateToScan)
                             AppOptionsMenuHost(
                                 fragment = this@MedicinesFragment,
                                 actions = appOptionsActions,
@@ -176,6 +176,13 @@ class MedicinesFragment : Fragment() {
                 }
             }
             .setNegativeButton(com.futsch1.medtimer.core.ui.R.string.cancel) { dialog, _ -> dialog.dismiss() }
+    }
+
+    private fun navigateToScan() {
+        val navController = findNavController(this.requireView())
+        if (navController.currentDestination?.id == R.id.medicinesFragment) {
+            navController.navigate(MedicinesFragmentDirections.actionMedicinesFragmentToScanFragment())
+        }
     }
 
     private fun navigateToMedicineId(medicineId: Int) {

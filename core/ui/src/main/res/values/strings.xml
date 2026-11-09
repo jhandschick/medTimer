@@ -391,7 +391,17 @@
     <string name="inconclusive_dose_units_warning">Dose units are inconclusive: %1$s. Stock tracking and level estimates may be inaccurate.</string>
     <string name="pk_no_unit">no unit</string>
     <string name="custom_range">Custom</string>
-    <string name="pzn">PZN</string>
+    <string name="pzn" translatable="false">PZN</string>
     <string name="pzn_not_set">Not set</string>
     <string name="pzn_invalid">Invalid PZN (check digit)</string>
+    <string name="scan_package">Scan package</string>
+    <string name="scan_hint">Hold the barcode or Data Matrix code in front of the camera</string>
+    <string name="scan_camera_permission">Camera access is needed to scan packages.</string>
+    <string name="open_settings">Open settings</string>
+    <string name="scan_refill_question">Refill %1$s?</string>
+    <string name="scan_take_expiry">Set expiration date to %1$s</string>
+    <string name="scan_batch">Batch: %1$s</string>
+    <string name="scan_unknown_pzn">PZN %1$s is not assigned yet. Assign to:</string>
+    <string name="scan_refilled">Refilled</string>
+    <string name="scan_assigned">PZN assigned</string>
 </resources>

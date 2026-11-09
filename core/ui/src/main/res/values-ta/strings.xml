@@ -385,4 +385,16 @@
     <string name="manual_dose_logged">மருந்தளவு பதிவுசெய்யப்பட்டது</string>
     <string name="manual_dose_log_failed">மருந்தளவைப் பதிவு செய்ய முடியவில்லை</string>
     <string name="medicine_name_required">மருந்தின் பெயரை உள்ளிடவும்</string>
+    <string name="pzn_not_set">அமைக்கப்படவில்லை</string>
+    <string name="pzn_invalid">தவறான PZN (சரிபார்ப்பு இலக்கம்)</string>
+    <string name="scan_package">பொதியை ஸ்கேன் செய்</string>
+    <string name="scan_hint">பார்கோடு அல்லது Data Matrix குறியீட்டை கேமராவின் முன் பிடிக்கவும்</string>
+    <string name="scan_camera_permission">பொதிகளை ஸ்கேன் செய்ய கேமரா அணுகல் தேவை.</string>
+    <string name="open_settings">அமைப்புகளைத் திற</string>
+    <string name="scan_refill_question">%1$s ஐ நிரப்பவா?</string>
+    <string name="scan_take_expiry">காலாவதி தேதியை %1$s என அமை</string>
+    <string name="scan_batch">தொகுதி: %1$s</string>
+    <string name="scan_unknown_pzn">PZN %1$s இன்னும் ஒதுக்கப்படவில்லை. இதற்கு ஒதுக்கு:</string>
+    <string name="scan_refilled">நிரப்பப்பட்டது</string>
+    <string name="scan_assigned">PZN ஒதுக்கப்பட்டது</string>
 </resources>

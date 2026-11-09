@@ -381,4 +381,16 @@
     <string name="reminder_types_help">Saiba mais sobre os tipos de lembrete</string>
     <string name="stock_decrement_preview">O estoque diminuirá em %1$s.</string>
     <string name="stock_decrement_unreadable">Não é possível determinar a redução do estoque porque esta quantidade é inválida.</string>
+    <string name="pzn_not_set">Não definido</string>
+    <string name="pzn_invalid">PZN inválido (dígito verificador)</string>
+    <string name="scan_package">Escanear embalagem</string>
+    <string name="scan_hint">Segure o código de barras ou o código Data Matrix na frente da câmera</string>
+    <string name="scan_camera_permission">É necessário acesso à câmera para escanear embalagens.</string>
+    <string name="open_settings">Abrir configurações</string>
+    <string name="scan_refill_question">Reabastecer %1$s?</string>
+    <string name="scan_take_expiry">Definir a data de validade para %1$s</string>
+    <string name="scan_batch">Lote: %1$s</string>
+    <string name="scan_unknown_pzn">O PZN %1$s ainda não foi atribuído. Atribuir a:</string>
+    <string name="scan_refilled">Reabastecido</string>
+    <string name="scan_assigned">PZN atribuído</string>
 </resources>

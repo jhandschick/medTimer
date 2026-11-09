@@ -385,4 +385,16 @@
     <string name="manual_dose_logged">Annus on logitud</string>
     <string name="manual_dose_log_failed">Annuse logimine ei õnnestunud</string>
     <string name="medicine_name_required">Sisesta ravimi nimi</string>
+    <string name="pzn_not_set">Määramata</string>
+    <string name="pzn_invalid">Vigane PZN (kontrollnumber)</string>
+    <string name="scan_package">Skanni pakend</string>
+    <string name="scan_hint">Hoia ribakoodi või Data Matrix koodi kaamera ees</string>
+    <string name="scan_camera_permission">Pakendite skannimiseks on vaja juurdepääsu kaamerale.</string>
+    <string name="open_settings">Ava seaded</string>
+    <string name="scan_refill_question">Kas täiendada %1$s?</string>
+    <string name="scan_take_expiry">Määra aegumise kuupäevaks %1$s</string>
+    <string name="scan_batch">Partii: %1$s</string>
+    <string name="scan_unknown_pzn">PZN %1$s pole veel määratud. Määra ravimile:</string>
+    <string name="scan_refilled">Täiendatud</string>
+    <string name="scan_assigned">PZN määratud</string>
 </resources>

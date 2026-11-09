@@ -92,4 +92,16 @@
 <string name="intro_getting_started_link">Kom i gang</string>
 <string name="intro_overview_orientation_description">Oversikten viser påminnelser for den valgte dagen. Velg en dag fra ukerekken. Statusikonet ved siden av hver påminnelse viser om den venter, det er varslet om den, den er tatt, hoppet over eller utsatt til du er hjemme. Du kan trykke på ikonet for å endre påminnelsens status.</string>
 <string name="intro_notifications">Varslingstillatelse</string>
-<string name="intro_notifications_description">MedTimer trenger tillatelse til å sende varsler for å varsle deg når en påminnelse forfaller. Du kan hoppe over introduksjonen og velge om du vil tillate varsler. Dette kan endres senere i Android-innstillingene.</string></resources>
+<string name="intro_notifications_description">MedTimer trenger tillatelse til å sende varsler for å varsle deg når en påminnelse forfaller. Du kan hoppe over introduksjonen og velge om du vil tillate varsler. Dette kan endres senere i Android-innstillingene.</string>    <string name="pzn_not_set">Ikke angitt</string>
+    <string name="pzn_invalid">Ugyldig PZN (kontrollsiffer)</string>
+    <string name="scan_package">Skann pakning</string>
+    <string name="scan_hint">Hold strekkoden eller Data Matrix-koden foran kameraet</string>
+    <string name="scan_camera_permission">Tilgang til kameraet kreves for å skanne pakninger.</string>
+    <string name="open_settings">Åpne innstillinger</string>
+    <string name="scan_refill_question">Fyll på %1$s?</string>
+    <string name="scan_take_expiry">Sett utløpsdato til %1$s</string>
+    <string name="scan_batch">Parti: %1$s</string>
+    <string name="scan_unknown_pzn">PZN %1$s er ikke tilordnet ennå. Tilordne til:</string>
+    <string name="scan_refilled">Fylt på</string>
+    <string name="scan_assigned">PZN tilordnet</string>
+</resources>

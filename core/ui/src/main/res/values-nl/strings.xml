@@ -385,4 +385,16 @@
     <string name="manual_dose_logged">Dosis gelogd</string>
     <string name="manual_dose_log_failed">Dosis kon niet worden gelogd</string>
     <string name="medicine_name_required">Voer een medicijnnaam in</string>
+    <string name="pzn_not_set">Niet ingesteld</string>
+    <string name="pzn_invalid">Ongeldig PZN (controlecijfer)</string>
+    <string name="scan_package">Verpakking scannen</string>
+    <string name="scan_hint">Houd de streepjescode of Data Matrix-code voor de camera</string>
+    <string name="scan_camera_permission">Voor het scannen van verpakkingen is toegang tot de camera nodig.</string>
+    <string name="open_settings">Instellingen openen</string>
+    <string name="scan_refill_question">%1$s aanvullen?</string>
+    <string name="scan_take_expiry">Vervaldatum instellen op %1$s</string>
+    <string name="scan_batch">Batch: %1$s</string>
+    <string name="scan_unknown_pzn">PZN %1$s is nog niet toegewezen. Toewijzen aan:</string>
+    <string name="scan_refilled">Aangevuld</string>
+    <string name="scan_assigned">PZN toegewezen</string>
 </resources>

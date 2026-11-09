@@ -385,4 +385,16 @@
     <string name="manual_dose_logged">Doz kaydedildi</string>
     <string name="manual_dose_log_failed">Doz kaydedilemedi</string>
     <string name="medicine_name_required">İlaç adı girin</string>
+    <string name="pzn_not_set">Ayarlanmadı</string>
+    <string name="pzn_invalid">Geçersiz PZN (kontrol basamağı)</string>
+    <string name="scan_package">Ambalajı tara</string>
+    <string name="scan_hint">Barkodu veya Data Matrix kodunu kameranın önünde tutun</string>
+    <string name="scan_camera_permission">Ambalajları taramak için kamera erişimi gerekiyor.</string>
+    <string name="open_settings">Ayarları aç</string>
+    <string name="scan_refill_question">%1$s yeniden doldurulsun mu?</string>
+    <string name="scan_take_expiry">Son kullanma tarihini %1$s olarak ayarla</string>
+    <string name="scan_batch">Parti: %1$s</string>
+    <string name="scan_unknown_pzn">PZN %1$s henüz atanmadı. Şuna ata:</string>
+    <string name="scan_refilled">Yeniden dolduruldu</string>
+    <string name="scan_assigned">PZN atandı</string>
 </resources>

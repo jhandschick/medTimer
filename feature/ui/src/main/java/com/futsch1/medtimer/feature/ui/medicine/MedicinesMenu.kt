@@ -34,7 +34,7 @@ object MedicinesMenuTestTags {
     const val MENU = "medicines_menu"
 }
 
-/** The medicine-list specific actions: bulk activation and sorting. */
+/** The medicine-list specific actions: package scan, bulk activation and sorting. */
 class MedicinesMenu @Inject constructor(
     private val medicineRepository: MedicineRepository,
     private val reminderRepository: ReminderRepository,
@@ -67,7 +67,7 @@ class MedicinesMenu @Inject constructor(
 }
 
 @Composable
-fun MedicinesMenuActions(menu: MedicinesMenu) {
+fun MedicinesMenuActions(menu: MedicinesMenu, onScanPackage: () -> Unit) {
     var expanded by remember { mutableStateOf(false) }
 
     Box {
@@ -90,6 +90,8 @@ fun MedicinesMenuActions(menu: MedicinesMenu) {
                 }
             }
 
+            item(CoreUiR.string.scan_package, onScanPackage)
+            HorizontalDivider()
             item(CoreUiR.string.activate_all) { menu.setRemindersActive(true) }
             item(CoreUiR.string.deactivate_all) { menu.setRemindersActive(false) }
             HorizontalDivider()

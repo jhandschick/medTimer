@@ -378,4 +378,16 @@
     <string name="manual_dose_logged">劑量已記錄</string>
     <string name="manual_dose_log_failed">無法記錄劑量</string>
     <string name="medicine_name_required">請輸入藥物名稱</string>
+    <string name="pzn_not_set">未設定</string>
+    <string name="pzn_invalid">無效的 PZN（檢查碼）</string>
+    <string name="scan_package">掃描包裝</string>
+    <string name="scan_hint">將條碼或 Data Matrix 碼對準相機</string>
+    <string name="scan_camera_permission">掃描包裝需要相機權限。</string>
+    <string name="open_settings">開啟設定</string>
+    <string name="scan_refill_question">補充 %1$s？</string>
+    <string name="scan_take_expiry">將到期日期設為 %1$s</string>
+    <string name="scan_batch">批號：%1$s</string>
+    <string name="scan_unknown_pzn">PZN %1$s 尚未關聯。關聯到：</string>
+    <string name="scan_refilled">已補充</string>
+    <string name="scan_assigned">已關聯 PZN</string>
 </resources>

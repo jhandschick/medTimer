@@ -385,4 +385,16 @@
     <string name="manual_dose_logged">Η δόση καταχωρίστηκε</string>
     <string name="manual_dose_log_failed">Δεν ήταν δυνατή η καταχώριση της δόσης</string>
     <string name="medicine_name_required">Εισαγάγετε όνομα φαρμάκου</string>
+    <string name="pzn_not_set">Δεν έχει οριστεί</string>
+    <string name="pzn_invalid">Μη έγκυρο PZN (ψηφίο ελέγχου)</string>
+    <string name="scan_package">Σάρωση συσκευασίας</string>
+    <string name="scan_hint">Κρατήστε τον γραμμωτό κώδικα ή τον κώδικα Data Matrix μπροστά στην κάμερα</string>
+    <string name="scan_camera_permission">Απαιτείται πρόσβαση στην κάμερα για τη σάρωση συσκευασιών.</string>
+    <string name="open_settings">Άνοιγμα ρυθμίσεων</string>
+    <string name="scan_refill_question">Αναπλήρωση %1$s;</string>
+    <string name="scan_take_expiry">Ορισμός ημερομηνίας λήξης σε %1$s</string>
+    <string name="scan_batch">Παρτίδα: %1$s</string>
+    <string name="scan_unknown_pzn">Το PZN %1$s δεν έχει αντιστοιχιστεί ακόμη. Αντιστοίχιση σε:</string>
+    <string name="scan_refilled">Αναπληρώθηκε</string>
+    <string name="scan_assigned">Το PZN αντιστοιχίστηκε</string>
 </resources>

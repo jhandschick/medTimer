@@ -397,4 +397,16 @@
     <string name="manual_dose_logged">Dawka zapisana</string>
     <string name="manual_dose_log_failed">Nie udało się zapisać dawki</string>
     <string name="medicine_name_required">Wpisz nazwę leku</string>
+    <string name="pzn_not_set">Nie ustawiono</string>
+    <string name="pzn_invalid">Nieprawidłowy PZN (cyfra kontrolna)</string>
+    <string name="scan_package">Zeskanuj opakowanie</string>
+    <string name="scan_hint">Przytrzymaj kod kreskowy lub kod Data Matrix przed aparatem</string>
+    <string name="scan_camera_permission">Do skanowania opakowań potrzebny jest dostęp do aparatu.</string>
+    <string name="open_settings">Otwórz ustawienia</string>
+    <string name="scan_refill_question">Uzupełnić %1$s?</string>
+    <string name="scan_take_expiry">Ustaw datę ważności na %1$s</string>
+    <string name="scan_batch">Partia: %1$s</string>
+    <string name="scan_unknown_pzn">PZN %1$s nie jest jeszcze przypisany. Przypisz do:</string>
+    <string name="scan_refilled">Uzupełniono</string>
+    <string name="scan_assigned">Przypisano PZN</string>
 </resources>

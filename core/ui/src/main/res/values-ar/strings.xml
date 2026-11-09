@@ -409,4 +409,16 @@
     <string name="manual_dose_logged">تم تسجيل الجرعة</string>
     <string name="manual_dose_log_failed">تعذّر تسجيل الجرعة</string>
     <string name="medicine_name_required">أدخل اسم الدواء</string>
+    <string name="pzn_not_set">غير محدد</string>
+    <string name="pzn_invalid">PZN غير صالح (رقم التحقق)</string>
+    <string name="scan_package">مسح العبوة</string>
+    <string name="scan_hint">وجّه الباركود أو رمز Data Matrix نحو الكاميرا</string>
+    <string name="scan_camera_permission">يلزم الوصول إلى الكاميرا لمسح العبوات.</string>
+    <string name="open_settings">فتح الإعدادات</string>
+    <string name="scan_refill_question">إعادة تعبئة %1$s؟</string>
+    <string name="scan_take_expiry">تعيين تاريخ انتهاء الصلاحية إلى %1$s</string>
+    <string name="scan_batch">التشغيلة: %1$s</string>
+    <string name="scan_unknown_pzn">لم يتم تعيين PZN %1$s بعد. تعيين إلى:</string>
+    <string name="scan_refilled">تمت إعادة التعبئة</string>
+    <string name="scan_assigned">تم تعيين PZN</string>
 </resources>

@@ -397,4 +397,16 @@
     <string name="manual_dose_logged">Дозу записано</string>
     <string name="manual_dose_log_failed">Не вдалося записати дозу</string>
     <string name="medicine_name_required">Введіть назву ліків</string>
+    <string name="pzn_not_set">Не задано</string>
+    <string name="pzn_invalid">Недійсний PZN (контрольна цифра)</string>
+    <string name="scan_package">Сканувати упаковку</string>
+    <string name="scan_hint">Тримайте штрихкод або код Data Matrix перед камерою</string>
+    <string name="scan_camera_permission">Для сканування упаковок потрібен доступ до камери.</string>
+    <string name="open_settings">Відкрити налаштування</string>
+    <string name="scan_refill_question">Поповнити %1$s?</string>
+    <string name="scan_take_expiry">Встановити термін придатності %1$s</string>
+    <string name="scan_batch">Партія: %1$s</string>
+    <string name="scan_unknown_pzn">PZN %1$s ще не призначено. Призначити для:</string>
+    <string name="scan_refilled">Поповнено</string>
+    <string name="scan_assigned">PZN призначено</string>
 </resources>
