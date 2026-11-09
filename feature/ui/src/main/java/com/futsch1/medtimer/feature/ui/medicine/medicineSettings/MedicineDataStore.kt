@@ -5,6 +5,7 @@ import com.futsch1.medtimer.core.common.helpers.DoseAmountParser
 import com.futsch1.medtimer.core.common.helpers.MedicineHelper
 import com.futsch1.medtimer.core.domain.model.Medicine
 import com.futsch1.medtimer.core.domain.repository.MedicineRepository
+import com.futsch1.medtimer.core.scan.PackageCodeParser
 import com.futsch1.medtimer.core.ui.TimeFormatter
 import com.futsch1.medtimer.core.ui.preferences.ModelDataStore
 import dagger.assisted.Assisted
@@ -54,6 +55,7 @@ class MedicineDataStore @AssistedInject constructor(
             "time_to_peak_hours" -> formatOptionalHours(modelData.timeToPeakHours)
             "production_date" -> timeFormatter.localDateToString(modelData.productionDate)
             "expiration_date" -> timeFormatter.localDateToString(modelData.expirationDate)
+            "pzn" -> modelData.pzn.orEmpty()
             "notification_importance" -> if (modelData.notificationImportance == Medicine.NotificationImportance.DEFAULT) {
                 "0"
             } else {
@@ -65,6 +67,10 @@ class MedicineDataStore @AssistedInject constructor(
     }
 
     override fun putString(key: String?, value: String?) {
+        if (key == "pzn") {
+            putPzn(value)
+            return
+        }
         when (key) {
             "amount" -> DoseAmountParser.parseAmount(value)
                 ?.let { modelData = modelData.copy(amount = it) }
@@ -86,6 +92,19 @@ class MedicineDataStore @AssistedInject constructor(
                     notificationImportance = if (value == "0") Medicine.NotificationImportance.DEFAULT else Medicine.NotificationImportance.HIGH,
                     showNotificationAsAlarm = value == "2"
                 )
+        }
+        coroutineScope.launch {
+            medicineRepository.update(modelData)
+        }
+    }
+
+    // A blank input removes the PZN; anything that is not a valid PZN leaves it unchanged
+    private fun putPzn(value: String?) {
+        val pzn = value.orEmpty().trim()
+        when {
+            pzn.isEmpty() -> modelData = modelData.copy(pzn = null)
+            PackageCodeParser.isValidPzn(pzn) -> modelData = modelData.copy(pzn = pzn)
+            else -> return
         }
         coroutineScope.launch {
             medicineRepository.update(modelData)

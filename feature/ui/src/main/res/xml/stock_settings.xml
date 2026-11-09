@@ -33,6 +33,9 @@
         <Preference
             app:key="expiration_date"
             app:title="@string/expiration_date" />
+        <EditTextPreference
+            app:key="pzn"
+            app:title="@string/pzn" />
         <Preference
             app:icon="@drawable/trash"
             app:key="clear_dates"

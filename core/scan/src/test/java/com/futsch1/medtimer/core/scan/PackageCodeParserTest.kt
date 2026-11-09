@@ -60,6 +60,16 @@ class PackageCodeParserTest {
         assertEquals(emptyList(), mismatches)
     }
 
+    @Test
+    fun `should accept pzn when check digit matches`() {
+        assertTrue(PackageCodeParser.isValidPzn("12345678"))
+    }
+
+    @Test
+    fun `should reject pzn when check digit or length is wrong`() {
+        assertEquals(listOf(false, false, false), listOf("12345679", "1234567", "abcdefgh").map(PackageCodeParser::isValidPzn))
+    }
+
     private fun pznFor(base: String): String? {
         val remainder = base.withIndex().sumOf { (i, c) -> (c - '0') * (i + 1) } % 11
         return if (remainder == 10) null else base + remainder

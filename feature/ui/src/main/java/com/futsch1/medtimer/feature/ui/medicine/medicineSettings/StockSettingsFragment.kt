@@ -3,6 +3,7 @@ package com.futsch1.medtimer.feature.ui.medicine.medicineSettings
 import android.content.ActivityNotFoundException
 import android.os.Bundle
 import android.text.Editable
+import android.text.InputFilter
 import android.text.InputType
 import android.text.TextWatcher
 import android.text.method.DigitsKeyListener
@@ -17,6 +18,7 @@ import com.futsch1.medtimer.core.common.helpers.DoseAmountParser
 import com.futsch1.medtimer.core.common.helpers.MedicineHelper
 import com.futsch1.medtimer.core.common.helpers.createCalendarEventIntent
 import com.futsch1.medtimer.core.domain.model.Medicine
+import com.futsch1.medtimer.core.scan.PackageCodeParser
 import com.futsch1.medtimer.core.ui.MedicineStringFormatter
 import com.futsch1.medtimer.core.ui.TimeFormatter
 import com.futsch1.medtimer.feature.reminders.api.SimulatedReminders
@@ -118,12 +120,16 @@ class StockSettingsFragment : MedicinePreferences(
         val unit = MedicineHelper.getUnit(modelData)
         setupAmountEdit(findPreference("amount")!!, unit)
         setupAmountEdit(findPreference("stock_refill_size")!!, unit)
+        setupPznEdit(findPreference("pzn")!!)
 
         observeRunOutDate(modelData.id)
     }
 
     override fun onModelDataUpdated(modelData: Medicine) {
         super.onModelDataUpdated(modelData)
+
+        findPreference<EditTextPreference>("pzn")!!.summary =
+            modelData.pzn ?: getString(com.futsch1.medtimer.core.ui.R.string.pzn_not_set)
 
         findPreference<EditTextPreference>("amount")!!.summary =
             MedicineHelper.formatAmount(modelData.amount, modelData)
@@ -151,6 +157,21 @@ class StockSettingsFragment : MedicinePreferences(
             } else {
                 ""
             }
+    }
+
+    private fun setupPznEdit(preference: EditTextPreference) {
+        preference.setOnBindEditTextListener { editText ->
+            editText.inputType = InputType.TYPE_CLASS_NUMBER
+            editText.filters = arrayOf(InputFilter.LengthFilter(PZN_LENGTH))
+        }
+        preference.setOnPreferenceChangeListener { _, newValue ->
+            val pzn = newValue.toString().trim()
+            val accepted = pzn.isEmpty() || PackageCodeParser.isValidPzn(pzn)
+            if (!accepted) {
+                Toast.makeText(requireContext(), com.futsch1.medtimer.core.ui.R.string.pzn_invalid, Toast.LENGTH_LONG).show()
+            }
+            accepted
+        }
     }
 
     private fun observeRunOutDate(medicineId: Int) {
@@ -226,6 +247,8 @@ fun EditText.addDoubleValidator() {
         }
     })
 }
+
+private const val PZN_LENGTH = 8
 
 fun setupAmountEdit(editTextPreference: EditTextPreference, unit: String = "") {
     editTextPreference.setOnBindEditTextListener { editText ->

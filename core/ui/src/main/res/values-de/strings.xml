@@ -385,4 +385,7 @@
     <string name="manual_dose_logged">Einnahme eingetragen</string>
     <string name="manual_dose_log_failed">Einnahme konnte nicht eingetragen werden</string>
     <string name="medicine_name_required">Medikamentennamen eingeben</string>
+    <string name="pzn">PZN</string>
+    <string name="pzn_not_set">Nicht hinterlegt</string>
+    <string name="pzn_invalid">Ungültige PZN (Prüfziffer)</string>
 </resources>

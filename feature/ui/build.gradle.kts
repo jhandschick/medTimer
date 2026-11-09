@@ -67,6 +67,7 @@ dependencies {
     implementation(libs.gson)
     implementation(project(":core:ui"))
     implementation(project(":core:location"))
+    implementation(project(":core:scan"))
     implementation(project(":feature:reminders:api"))
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
