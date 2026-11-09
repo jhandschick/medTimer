@@ -24,5 +24,6 @@ class MedicineEntity(
     @ColumnInfo(defaultValue = "0") var expirationDate: Long = 0,
     @ColumnInfo(defaultValue = "false") var cannotBeSkipped: Boolean = false,
     @ColumnInfo(defaultValue = "0") var halfLifeHours: Double = 0.0,
-    @ColumnInfo(defaultValue = "0") var timeToPeakHours: Double = 0.0
+    @ColumnInfo(defaultValue = "0") var timeToPeakHours: Double = 0.0,
+    var pzn: String? = null
 )

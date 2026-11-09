@@ -16,5 +16,6 @@ class MedicineBackup(
     var expirationDate: Long = 0,
     var cannotBeSkipped: Boolean = false,
     var halfLifeHours: Double = 0.0,
-    var timeToPeakHours: Double = 0.0
+    var timeToPeakHours: Double = 0.0,
+    var pzn: String? = null
 )

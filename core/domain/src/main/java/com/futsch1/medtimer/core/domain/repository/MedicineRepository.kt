@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface MedicineRepository {
     suspend fun fetch(medicineId: Int): Medicine?
+    suspend fun findByPzn(pzn: String): Medicine?
     fun getFlow(medicineId: Int): Flow<Medicine?>
     suspend fun getAll(): List<Medicine>
     fun getAllFlow(): Flow<List<Medicine>>

@@ -10,6 +10,7 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import java.io.IOException
 import kotlin.test.assertEquals
+import kotlin.test.assertTrue
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [36])
@@ -90,6 +91,25 @@ class MigrationTest {
         cursor.moveToNext()
         assertEquals("Beta", cursor.getString(0))
         assertEquals(2.0, cursor.getDouble(1), 0.001)
+        cursor.close()
+        db.close()
+    }
+
+    @Test
+    @Throws(IOException::class)
+    fun testMigrate26To27() {
+        // Create version 26 of the database and insert a Medicine row (no pzn column yet).
+        var db = helper.createDatabase(testDb, 26)
+        db.execSQL("INSERT INTO Medicine (medicineName) VALUES ('Medicine A')")
+        db.close()
+
+        // Run migration to version 27: pzn column added, existing medicines have none.
+        db = helper.runMigrationsAndValidate(testDb, 27, true)
+
+        val cursor = db.query("SELECT medicineName, pzn FROM Medicine")
+        cursor.moveToFirst()
+        assertEquals("Medicine A", cursor.getString(0))
+        assertTrue(cursor.isNull(1))
         cursor.close()
         db.close()
     }

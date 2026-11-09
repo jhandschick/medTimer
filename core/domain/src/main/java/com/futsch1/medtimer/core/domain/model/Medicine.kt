@@ -23,7 +23,8 @@ data class Medicine(
     val reminders: List<Reminder>,
     val cannotBeSkipped: Boolean,
     val halfLifeHours: Double,
-    val timeToPeakHours: Double
+    val timeToPeakHours: Double,
+    val pzn: String?
 ) {
     enum class NotificationImportance(val value: Int) {
         DEFAULT(NotificationManager.IMPORTANCE_DEFAULT),
@@ -77,7 +78,8 @@ data class Medicine(
             reminders = emptyList(),
             cannotBeSkipped = false,
             halfLifeHours = 0.0,
-            timeToPeakHours = 0.0
+            timeToPeakHours = 0.0,
+            pzn = null
         )
     }
 }

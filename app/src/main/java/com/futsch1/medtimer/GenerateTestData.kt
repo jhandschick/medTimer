@@ -137,7 +137,8 @@ class GenerateTestData @AssistedInject constructor(
                 reminders = reminders.map { it.toReminder(0).toModel() },
                 cannotBeSkipped = false,
                 halfLifeHours = 0.0,
-                timeToPeakHours = 0.0
+                timeToPeakHours = 0.0,
+                pzn = null
             )
         }
     }

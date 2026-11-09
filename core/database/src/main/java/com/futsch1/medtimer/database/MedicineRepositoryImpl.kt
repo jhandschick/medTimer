@@ -17,6 +17,10 @@ class MedicineRepositoryImpl(
         return medicineDao.getFull(medicineId)?.toModel()
     }
 
+    override suspend fun findByPzn(pzn: String): Medicine? {
+        return medicineDao.getFullByPzn(pzn)?.toModel()
+    }
+
     override fun getFlow(medicineId: Int): Flow<Medicine?> {
         return medicineDao.getFlow(medicineId).map { it?.toModel() }
     }

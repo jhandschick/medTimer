@@ -40,6 +40,10 @@ abstract class MedicineDao {
     @Query("SELECT * FROM Medicine WHERE medicineId = :medicineId")
     abstract fun getFlow(medicineId: Int): Flow<FullMedicineEntity?>
 
+    @Transaction
+    @Query("SELECT * FROM Medicine WHERE pzn = :pzn ORDER BY sortOrder LIMIT 1")
+    abstract suspend fun getFullByPzn(pzn: String): FullMedicineEntity?
+
     @Insert
     abstract suspend fun create(medicine: MedicineEntity): Long
 

@@ -33,7 +33,8 @@ fun MedicineEntity.toBackup(): MedicineBackup = MedicineBackup(
     expirationDate = expirationDate,
     cannotBeSkipped = cannotBeSkipped,
     halfLifeHours = halfLifeHours,
-    timeToPeakHours = timeToPeakHours
+    timeToPeakHours = timeToPeakHours,
+    pzn = pzn
 )
 
 fun MedicineBackup.toEntity(): MedicineEntity = MedicineEntity(
@@ -52,7 +53,8 @@ fun MedicineBackup.toEntity(): MedicineEntity = MedicineEntity(
     expirationDate = expirationDate,
     cannotBeSkipped = cannotBeSkipped,
     halfLifeHours = halfLifeHours,
-    timeToPeakHours = timeToPeakHours
+    timeToPeakHours = timeToPeakHours,
+    pzn = pzn
 )
 
 // --- Reminder ---

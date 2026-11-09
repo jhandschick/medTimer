@@ -21,7 +21,8 @@ fun Medicine.toEntity(): MedicineEntity = MedicineEntity(
     expirationDate = expirationDate.toEpochDay(),
     cannotBeSkipped = cannotBeSkipped,
     halfLifeHours = halfLifeHours,
-    timeToPeakHours = timeToPeakHours
+    timeToPeakHours = timeToPeakHours,
+    pzn = pzn
 )
 
 fun FullMedicineEntity.toModel(): Medicine {
@@ -43,6 +44,7 @@ fun FullMedicineEntity.toModel(): Medicine {
         reminders = reminders.map { it.toModel() },
         cannotBeSkipped = medicine.cannotBeSkipped,
         halfLifeHours = medicine.halfLifeHours,
-        timeToPeakHours = medicine.timeToPeakHours
+        timeToPeakHours = medicine.timeToPeakHours,
+        pzn = medicine.pzn
     )
 }
