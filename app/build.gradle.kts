@@ -412,3 +412,12 @@ tasks.register<JacocoReport>("jacocoFullDebugCodeCoverage") {
         )
     )
 }
+
+// Lint reads the test sources KSP generates but does not wait for the KSP test tasks. When both run in one build,
+// KSP rewrites those files under the running analysis and lint dies with "Unexpected failure during lint analysis".
+val lintAnalyzeTestTask = Regex("lintAnalyze(.+)(UnitTest|AndroidTest)")
+tasks.configureEach {
+    val (variant, tests) = lintAnalyzeTestTask.matchEntire(name)?.destructured ?: return@configureEach
+    val kspTask = "ksp$variant${tests}Kotlin"
+    mustRunAfter(kspTask)
+}
